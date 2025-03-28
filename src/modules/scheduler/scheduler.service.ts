@@ -10,8 +10,8 @@ export class SchedulerService {
     this.logger.debug('Called when the current second is 45');
   }
 
-  @Cron(CronExpression.EVERY_5_SECONDS)
+  @Cron(CronExpression.EVERY_30_SECONDS)
   handleCron2() {
-    this.logger.debug('Called every 5 seconds');
+    this.logger.debug('Called every 30 seconds');
   }
 }

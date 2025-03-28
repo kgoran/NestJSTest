@@ -3,8 +3,10 @@ import { AppModule } from './app.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { MAIN_QUEUE } from './common/app.constants';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import tracer from './tracing';
 
 async function bootstrap() {
+  tracer.start();
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
@@ -14,6 +16,7 @@ async function bootstrap() {
     .addTag('cats')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
+
   SwaggerModule.setup('api', app, documentFactory);
 
   app.connectMicroservice<MicroserviceOptions>({

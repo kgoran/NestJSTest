@@ -96,3 +96,17 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## Generate documentation
+
+npx @compodoc/compodoc -p tsconfig.json -s -r 8182 --theme material
+
+[Open documentation page](http://localhost:8182/)
+
+## Jeager Docker image
+
+docker run -d --name jaeger -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 -e COLLECTOR_OTLP_ENABLED=true -p 6831:6831/udp -p 6832:6832/udp -p 5778:5778 -p 16686:16686 -p 4317:4317 -p 4318:4318 -p 14250:14250 -p 14268:14268 -p 14269:14269 -p 9411:9411 jaegertracing/all-in-one:1.41
+
+## healthcheck
+
+http://localhost:3000/health

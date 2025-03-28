@@ -8,6 +8,8 @@ import { TodoModule } from './modules/todo/todo.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { SchedulerModule } from './modules/scheduler/scheduler.module';
+import { RouterModule } from './modules/router/router.module';
+import { HealthModule } from './modules/health/health.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { SchedulerModule } from './modules/scheduler/scheduler.module';
     AuthModule,
     UsersModule,
     SchedulerModule,
+    RouterModule,
+    HealthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

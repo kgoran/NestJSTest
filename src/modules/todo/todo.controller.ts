@@ -12,6 +12,15 @@ import { TodoService } from './todo.service';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 
+/**
+ * Shows all events on a given day. Example usage:
+ *
+ * @example
+ * <mwl-calendar-day-view
+ *             [viewDate]="viewDate"
+ *             [events]="events">
+ * </mwl-calendar-day-view>
+ */
 @Controller('todos')
 export class TodoController {
   constructor(private todoService: TodoService) {}

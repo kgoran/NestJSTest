@@ -20,6 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@nestjs/axios": "^4.0.0",
     "@nestjs/cache-manager": "^3.0.0",
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.1",
@@ -30,7 +31,16 @@
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/schedule": "^5.0.1",
     "@nestjs/swagger": "^11.1.0",
+    "@nestjs/terminus": "^11.0.0",
     "@nestjs/typeorm": "^11.0.0",
+    "@opentelemetry/exporter-jaeger": "^2.0.0",
+    "@opentelemetry/instrumentation-express": "^0.48.0",
+    "@opentelemetry/instrumentation-http": "^0.200.0",
+    "@opentelemetry/instrumentation-nestjs-core": "^0.45.0",
+    "@opentelemetry/resources": "^2.0.0",
+    "@opentelemetry/sdk-node": "^0.200.0",
+    "@opentelemetry/sdk-trace-base": "^2.0.0",
+    "@opentelemetry/semantic-conventions": "^1.30.0",
     "amqp-connection-manager": "^4.1.14",
     "amqplib": "^0.10.5",
     "cache-manager": "^6.4.1",
@@ -43,6 +53,7 @@
     "typeorm": "^0.3.21"
   },
   "devDependencies": {
+    "@compodoc/compodoc": "^1.1.26",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.18.0",
     "@nestjs/cli": "^11.0.0",
