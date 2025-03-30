@@ -10,6 +10,9 @@ import { UsersModule } from './modules/users/users.module';
 import { SchedulerModule } from './modules/scheduler/scheduler.module';
 import { RouterModule } from './modules/router/router.module';
 import { HealthModule } from './modules/health/health.module';
+import { WebapiModule } from './modules/webapi/webapi.module';
+import { SseModule } from './modules/sse/sse.module';
+import { EncryptionModule } from './modules/encryption/encryption.module';
 
 @Module({
   imports: [
@@ -21,6 +24,9 @@ import { HealthModule } from './modules/health/health.module';
     SchedulerModule,
     RouterModule,
     HealthModule,
+    WebapiModule,
+    SseModule,
+    EncryptionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

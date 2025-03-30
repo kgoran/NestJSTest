@@ -7,7 +7,10 @@ import tracer from './tracing';
 
 async function bootstrap() {
   tracer.start();
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    forceCloseConnections: true,
+  });
+  app.enableShutdownHooks();
 
   const config = new DocumentBuilder()
     .setTitle('Cats example')

@@ -1,9 +1,38 @@
-import { Controller, Get, Param, Post, Body, Put } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Post,
+  Body,
+  Put,
+  Res,
+  Sse,
+  MessageEvent,
+} from '@nestjs/common';
 import { WebapiService } from './webapi.service';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import { interval, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Response } from 'express';
 
 @Controller('webapi')
 export class WebapiController {
   constructor(private readonly webapiService: WebapiService) {}
+
+  @Get('html')
+  index(@Res() response: Response) {
+    response
+      .type('text/html')
+      .send(readFileSync(join(__dirname, 'index.html')).toString());
+  }
+
+  @Sse('sse')
+  sse(): Observable<MessageEvent> {
+    return interval(1000).pipe(
+      map((_) => ({ data: { hello: 'world' } }) as MessageEvent),
+    );
+  }
 
   @Get(':id')
   findOne(@Param() params: any): string {
